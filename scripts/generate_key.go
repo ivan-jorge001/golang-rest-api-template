@@ -1,10 +1,10 @@
 package main
 
 import (
+	"aitrainer-api/pkg/random"
 	"fmt"
-	"golang-rest-api-template/pkg/auth"
 )
 
 func main() {
-	fmt.Println(auth.GenerateRandomKey())
+	fmt.Println(random.GenerateRandomKey())
 }

@@ -1,4 +1,4 @@
-# golang-rest-api-template
+# aitrainer
 
 ## Overview
 
@@ -17,12 +17,12 @@ This repository provides a template for building a RESTful API using Go with fea
 ## Folder structure
 
 ```
-golang-rest-api-template/
+aitrainer-api/
 |-- bin/
 |-- cmd/
 |   |-- server/
 |       |-- main.go
-|-- pkg/
+|-- internal/
 |   |-- api/
 |       |-- handler.go
 |       |-- router.go
@@ -45,7 +45,7 @@ golang-rest-api-template/
 
     - **`main.go`**: The entry point.
 
-3. **`pkg/`**: Libraries and packages that are okay to be used by applications from other projects. 
+3. **`internal/`**: Libraries and packages that are okay to be used by applications from other projects. 
 
     - **`api/`**: API logic.
         - **`handler.go`**: HTTP handlers.
@@ -68,13 +68,13 @@ golang-rest-api-template/
 1. Clone the repository
 
 ```bash
-git clone https://github.com/araujo88/golang-rest-api-template
+git clone https://github.com/araujo88/aitrainer-api
 ```
 
 2. Navigate to the directory
 
 ```bash
-cd golang-rest-api-template
+cd aitrainer-api
 ```
 
 3. Build and run the Docker containers

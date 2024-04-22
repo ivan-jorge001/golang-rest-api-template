@@ -1,9 +1,11 @@
 package main
 
 import (
-	"golang-rest-api-template/pkg/api"
-	"golang-rest-api-template/pkg/cache"
-	"golang-rest-api-template/pkg/database"
+	"aitrainer-api/config"
+	"aitrainer-api/internal/api"
+	"aitrainer-api/internal/cache"
+	"aitrainer-api/internal/database"
+	"fmt"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -35,15 +37,20 @@ import (
 // @externalDocs.description  OpenAPI
 // @externalDocs.url          https://swagger.io/resources/open-api/
 func main() {
-	cache.InitRedis()
-	database.ConnectDatabase()
+	cfg := config.LoadConfig()
 
-	//gin.SetMode(gin.ReleaseMode)
-	gin.SetMode(gin.DebugMode)
+	cache.InitRedis(cfg)
+	database.ConnectDatabase(cfg)
 
-	r := api.InitRouter()
+	if cfg.IsDev() {
+		gin.SetMode(gin.DebugMode)
+	} else {
+		gin.SetMode(gin.ReleaseMode)
+	}
 
-	if err := r.Run(":8001"); err != nil {
+	r := api.InitRouter(cfg)
+
+	if err := r.Run(fmt.Sprintf(":%v", cfg.Port)); err != nil {
 		log.Fatal(err)
 	}
 }

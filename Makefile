@@ -6,8 +6,15 @@ setup:
 build:
 	docker compose build --no-cache
 
+depedencies:
+	docker compose up db -d
+	docker compose up redis -d
+
+local: depedencies
+	APP_ENV=development go run ./cmd/server/main.go  
+
 up:
-	docker compose up
+	docker compose up -d
 
 down:
 	docker compose down
@@ -21,5 +28,5 @@ clean:
 	docker rm go-rest-api-template
 	docker rm dockerPostgres
 	docker rm dockerRedis
-	docker image rm golang-rest-api-template-backend
+	docker image rm aitrainer-api-backend
 	rm -rf .dbdata

@@ -1,0 +1,10 @@
+port: 8080
+environment: production
+api_key: 
+jwt_secret: 
+postgress:
+  host: "localhost"
+  user: "yourusername"
+  name: "yourusername"
+  password: "yourpassword"
+  port: 5432

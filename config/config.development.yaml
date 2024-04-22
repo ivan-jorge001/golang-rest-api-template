@@ -1,0 +1,10 @@
+port: 8080
+environment: development
+api_key: ObL89O3nOSSEj6tbdHako0cXtPErzBUfq8l8o/3KD9g=INSECURE
+jwt_secret: cJGZ8L1sDcPezjOy1zacPJZxzZxrPObm2Ggs1U0V+fE=INSECURE
+postgress:
+  host: localhost
+  user: docker
+  name: go_app_dev
+  password: password
+  port: 5435
